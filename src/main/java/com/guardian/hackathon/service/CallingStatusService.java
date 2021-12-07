@@ -10,10 +10,9 @@ public class CallingStatusService {
 
         CallingStatus callingStatus = new CallingStatus();
         callingStatus.setAccountNumber(accountNumber);
-        System.out.println ("account : " +accountNumber);
+
         switch (accountNumber) {
             case "123":
-                System.out.println ("1");
                 callingStatus.setFraud(false);
                 callingStatus.setNumberCalled("07123456789");
                 callingStatus.setStatusMessage("Number Called Successfully");
@@ -34,8 +33,6 @@ public class CallingStatusService {
                 callingStatus.setStatusMessage("Account does not exist");
                 break;
         }
-
-
 
         return callingStatus;
     }

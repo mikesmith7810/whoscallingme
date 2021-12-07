@@ -17,7 +17,11 @@ public class MainController {
     @ResponseBody
     public CallingStatus checkIfAccountIsCalling(@PathVariable("accountNumber") String accountNumber){
 
+        System.out.println("Checking status for Account : " + accountNumber);
+
         CallingStatus callingStatus = getCallingStatusService().checkCallStatus(accountNumber);
+
+        System.out.println(callingStatus.toString());
 
         return callingStatus;
     }
