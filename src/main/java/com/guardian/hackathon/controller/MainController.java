@@ -21,7 +21,9 @@ public class MainController {
 
         CallingStatus callingStatus = getCallingStatusService().checkCallStatus(accountNumber);
 
-        System.out.println(callingStatus.toString());
+        System.out.println("Account Number : " + callingStatus.getAccountNumber());
+        System.out.println("Number Called by Bank : " + callingStatus.getNumberCalled());
+        System.out.println("Status Message : " + callingStatus.getStatusMessage());
 
         return callingStatus;
     }
