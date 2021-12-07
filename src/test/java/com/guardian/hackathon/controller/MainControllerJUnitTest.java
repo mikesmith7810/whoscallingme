@@ -1,5 +1,6 @@
 package com.guardian.hackathon.controller;
 
+import com.guardian.hackathon.pojo.CallingStatus;
 import com.guardian.hackathon.service.CallingStatusService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,11 +25,15 @@ public class MainControllerJUnitTest {
     public void setup(){
         mainController = new MainController();
         mainController.setCallingStatusService(mockCallingStatusService);
+
+
     }
 
     @Test
     public void shouldCallCallStatusService() throws Exception {
-        mainController.checkIfAccountIsCalling(ACCOUNT_NUMBER);
+        when(mockCallingStatusService.checkCallStatus(ACCOUNT_NUMBER)).thenReturn(new CallingStatus());
+
+        CallingStatus callingStatus = mainController.checkIfAccountIsCalling(ACCOUNT_NUMBER);
 
         verify(mockCallingStatusService, times(1)).checkCallStatus(ACCOUNT_NUMBER);
     }
